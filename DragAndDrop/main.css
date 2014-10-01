@@ -1,0 +1,7 @@
+.drag{
+  border: 1px dashed blue;
+  display: inline-block;
+}
+.drop{
+  border: 1px solid black;
+}
