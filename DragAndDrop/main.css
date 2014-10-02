@@ -2,6 +2,7 @@
   border: 1px dashed blue;
   display: inline-block;
 }
-.drop{
+#drop{
   border: 1px solid black;
+  height: 200px;
 }
