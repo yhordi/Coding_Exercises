@@ -1,5 +1,6 @@
 $(document).ready(function(){
  var steam = new Steam
+ var ajaxData
  steam.getData()
 });
 var Steam = function(){
@@ -17,9 +18,10 @@ Steam.prototype = {
         steamids: '76561197985852059',
       },
       success: function (data) {
-        response = data;
-        console.log('SUCCESS!', response, data);
-        $.parseJSON (data);
+        ajaxData = data;
+        console.log('SUCCESS!');
+        responseData = $.parseJSON (data);
+
       },
       error: function (bug) {
         console.log(bug)
@@ -30,7 +32,9 @@ Steam.prototype = {
       }
     })
   },
-  saveStuff: function(){
-    alert("fuckery")
-  }
 }
+
+var dataParse = function(){
+  $(".username").append(ajaxData.response.players[0].realname)
+}
+
