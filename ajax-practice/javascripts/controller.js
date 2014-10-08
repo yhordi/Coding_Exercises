@@ -1,5 +1,5 @@
 function Controller(steam) {
-  this.steam = new Steam()
+  this.steam = steam
 }
 
 Controller.prototype = {
