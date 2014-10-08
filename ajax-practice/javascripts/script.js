@@ -1,14 +1,17 @@
 $(document).ready(function(){
- var steam = new Steam
- steam.ajaxRequest()
+  var steam = new Steam
+  var controller = new Controller(steam)
+  controller.bindListeners()
+  var ajaxData = null;
 });
- var ajaxData = null;
+
 
 var Steam = function(){
 }
 
 Steam.prototype = {
-  ajaxRequest: function(){
+  ajaxRequest: function(e){
+    e.preventDefault
     $.ajax({
       dataType: 'Json',
       type: 'get',
@@ -30,9 +33,8 @@ Steam.prototype = {
       }
     })
   },
-  injectResponse: function() {
-    $(".username").html(ajaxData.response.players[0].realname)
+  injectResponse: function(data) {
+    $(".username").html(data.response.players[0].realname)
   }
 }
-
 
