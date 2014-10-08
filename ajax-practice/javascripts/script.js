@@ -21,7 +21,7 @@ Steam.prototype = {
       },
       success: function (data) {
         ajaxData = data
-        console.log('SUCCESS!');
+        console.log(data);
         Steam.prototype.injectResponse(ajaxData)
       },
       error: function (bug) {
@@ -34,7 +34,10 @@ Steam.prototype = {
     })
   },
   injectResponse: function(data) {
-    $(".username").html(data.response.players[0].realname)
+    var playerData = data.response.players[0]
+    $(".avatar").append("<img src =" + playerData.avatarfull + "/>")
+    $(".userName").append(playerData.personaname)
+    $(".realName").append(playerData.realname)
   }
 }
 
