@@ -11,7 +11,6 @@ var Steam = function(){
 
 Steam.prototype = {
   ajaxRequest: function(e){
-    e.preventDefault
     $.ajax({
       dataType: 'Json',
       type: 'get',
@@ -23,6 +22,7 @@ Steam.prototype = {
       success: function (data) {
         ajaxData = data
         console.log('SUCCESS!');
+        Steam.prototype.injectResponse(ajaxData)
       },
       error: function (bug) {
         console.log(bug)
