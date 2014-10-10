@@ -5,6 +5,6 @@ function Controller(steam) {
 Controller.prototype = {
   bindListeners: function() {
     $gobutton = $('.go')
-    $gobutton.click(this.steam.ajaxRequest.bind(this))
+    $gobutton.click(this.steam.getInfo.bind(this))
   }
 }

@@ -35,6 +35,24 @@ Steam.prototype = {
       }
     })
   },
+  getInfo: function(){
+    $.ajax({
+      dataType: 'json',
+      type: 'get',
+      url: '/HTTParty',
+      success: function(){
+        console.log("SUCESS!")
+      },
+      error: function (bug) {
+        console.log("something went wrong!")
+        console.log(bug)
+      },
+      complete: function (data) {
+        var status = data.status
+        console.log(status)
+      }
+    })
+  },
   injectResponse: function(data) {
     var playerData = data.response.players[0]
     $(".avatar").append("<img src =" + playerData.avatarfull + "/>")
